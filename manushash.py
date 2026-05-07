@@ -8,7 +8,11 @@ def rotl(x, n):
     """Rotation vers la gauche de n bits sur un mot de 32 bits."""
     return ((x << n) | (x >> (32 - n))) & 0xFFFFFFFF
 
-class ManusHash256:
+class DiesseMirdaCarolHash256:
+    """
+    Algorithme de hachage personnalisé pour le TP.
+    Nom de l'étudiant : Diesse mirda Carol
+    """
     def __init__(self):
         # Valeurs initiales (H0-H7) - 8 premiers nombres premiers (racines carrées)
         self.h = [
@@ -76,12 +80,12 @@ class ManusHash256:
     def hexdigest(self):
         return ''.join(f'{x:08x}' for x in self.h)
 
-def hash_function(data):
+def diesse_mirda_carol_hash(data):
     """Fonction utilitaire pour hacher une donnée."""
-    hasher = ManusHash256()
+    hasher = DiesseMirdaCarolHash256()
     return hasher.update(data)
 
 if __name__ == "__main__":
-    msg = "Bonjour, ceci est un test de ManusHash-256."
+    msg = "Test de la fonction de hachage de Diesse mirda Carol"
     print(f"Message: {msg}")
-    print(f"Hash: {hash_function(msg)}")
+    print(f"Hash: {diesse_mirda_carol_hash(msg)}")
